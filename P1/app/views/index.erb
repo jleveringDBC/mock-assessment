@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>User Skills and Levels</h1>
+
+  <% if session[:user_id] %>
+    <a href="/skills">Fabricate some skills, dog.</a>
+    <br><br>
+  <% end %>
+
+  <table>
+    <tr>
+      <th>Name</th><th>Skill</th><th>Years</th><th>Formal?</th>
+    </tr>
+  <% User.all.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+    <% if user.skills.size > 0 %>
+      <% user.skills.each do |skill| %>
+        <td><%=skill.name%> (<%=skill.context%>)</td>
+        <td><%proficiency = Proficiency.where(user_id: user.id, skill_id: skill.id)[0]%><%=proficiency.experience%></td>
+        <td><%=proficiency.formal_education%></td>
+      </tr>
+      <tr><td/>
+      <% end %>
+    <% else %>
+      <td>No Skills (sad)</td><td>:(</td><td>:(</td>
+    <% end %>
+  <% end %>
+  </tr>
+</table>
+  <%# TODO: display the skills and proficiency levels for each user ... %>
+</div>
+

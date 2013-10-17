@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>This is how we fab</h1>
+
+
+  <h3>Select a skill to add to your profile</h3>
+  <form action="/skills" method="post">
+    <% skill_contexts = [] %>
+    <% Skill.all.each do |skill| %>
+      <% if skill_contexts.include?(skill.context)%>
+      <% else %>
+        <br><b><%=skill.context.upcase%></b><br><br>
+        <% skill_contexts << skill.context %>
+      <% end %>
+      <input type="checkbox" name="<%=skill.name%>[name]"><%=skill.name%><br>
+      Years experience: <input type="number" name="<%=skill.name%>[experience]"><br>
+      Formal Education?: <input type="radio" name="<%=skill.name%>[formal_education]" value="true">True 
+      <input type="radio" name="<%=skill.name%>[formal_education]" value="False">False<br><br>
+    <% end %>
+    <br>
+    <input type="submit" value="Update your skills">
+  </form>
+
+
+
+</div>
