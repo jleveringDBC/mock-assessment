@@ -49,31 +49,43 @@ li a {
 }
 
 .features div {
-  width: 29.26%;
+  width: 29%;
   float: right;
   background-color:white;
-  padding: 0px 15;
+  padding: 30px 15px;
 }
 
-div.marketing {
+.marketing {
   padding: 10px;
   margin: 1em 0;
   background-color: #555;
   color: white;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .features div:nth-child(2) {
   border-left: 1px solid #333;
   border-right: 1px solid #333;
-  padding: 0px 30px;
+  /*padding: 0px 30px;*/
 }
 
 .features div:nth-child(1) {
   padding-left: 30px;
 }
 
+.features {
+  width: 100%;
+}
 
+h3 {
+  text-align: center;
+}
 
+.marketing:last-child {
+  
+}
 
 
 
